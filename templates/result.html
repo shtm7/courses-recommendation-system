@@ -1,0 +1,79 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>Recommendation System </title>
+        <img src="https://pbs.twimg.com/profile_images/1330743453169364994/Rzwu6K7O_400x400.jpg" alt="Monshaat" style='padding-top: 10px;padding-right: 15px;float:right;width:100px;height:100px'>
+    </head>
+    <body>
+        <div style="padding-top: 25px;padding-right: 30px;padding-bottom: 50px;padding-left: 80px;">
+            <div class="hero-text">
+                 <div id="header">
+                <h1> Recommendation : </h1>
+                </div>
+           
+            <div  class="col-sm center-block text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm"></div>
+                <table >
+
+                    <tr>
+                        <td>
+                        <ol dir="rtl" style="float:center;"> 
+
+                        
+                            <!-- For loop logic of jinja template -->
+                            {%for i in range(0, len)%} 
+                            
+                                <li  >{{recommend[i]}}</li> 
+                            {%endfor%} 
+                            
+                        
+                        </ol>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+                <button id="myButton" class="mainsubmit" >Back</button>
+                    
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <img src="https://static.mubasher.info/File.Story_Image/2df33fe4a977be9399054db42d599ac2/1024.jpg" style="display: block;height: 400px; margin-left: auto;margin-right: auto;">
+        <footer class="footer mt-auto py-3 text-center">
+            <div class=" flex flex-row w-100 justify-center mb-3 text-gray-700 ">© Data Geeks Group 2021</div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("input[name$='options']").click(function() {
+                    var test = $(this).val();
+    
+                    $("div.selectorBM").hide();
+                    $("#options" + test).show();
+                    $("input[name='bmselect']").prop('checked',false);
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+                location.href = "/";
+            };
+        </script>
+        <script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+    </body>
+</html>
